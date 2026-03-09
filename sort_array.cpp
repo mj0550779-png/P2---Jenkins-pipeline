@@ -1,39 +1,27 @@
 #include <iostream>
-#include <algorithm>
+
 using namespace std;
 
-// Funkcja sortująca tablicę - sortowanie bąbelkowe
-void bubbleSort(int arr[], int n) {
-    for (int i = 0; i < n - 1; i++) {
-        for (int j = 0; j < n - i - 1; j++) {
-            if (arr[j] > arr[j + 1]) {
-                // Zamiana elementów
-                int temp = arr[j];
-                arr[j] = arr[j + 1];
-                arr[j + 1] = temp;
-            }
+int main() 
+{
+    const int size = 5;
+    int tab[size];
+
+    cout << "Podaj elementy tablicy.\n";
+    for(int i=0; i<5; i++)
+        cin >> tab[i];
+
+    for(int i=0; i<5; i++)
+        {
+            for(int j=i; j<5; j++)
+                {
+                    if(tab[j] < tab[i])
+                        swap(tab[j], tab[i]);
+                }
         }
-    }
-}
 
-// Funkcja wyświetlająca tablicę
-void printArray(int arr[], int n) {
-    for (int i = 0; i < n; i++)
-        cout << arr[i] << " ";
-    cout << endl;
-}
-
-int main() {
-    int arr[] = {64, 34, 25, 12, 22, 11, 90};
-    int n = sizeof(arr) / sizeof(arr[0]);
-    
-    cout << "Tablica przed sortowaniem: ";
-    printArray(arr, n);
-    
-    bubbleSort(arr, n);
-    
-    cout << "Tablica po sortowaniu: ";
-    printArray(arr, n);
+    for(int i=0; i<5; i++)
+        cout << tab[i] << " ";
     
     return 0;
 }
